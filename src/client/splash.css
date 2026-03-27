@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.app {
+  background: #0a0a0f;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", monospace;
+  overflow: hidden;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 24px;
+}
+
+.title-block {
+  text-align: center;
+}
+
+.game-title {
+  font-size: 52px;
+  color: #00ffcc;
+  letter-spacing: 8px;
+  line-height: 1;
+}
+
+.game-sub {
+  font-size: 12px;
+  color: #334455;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+
+/* Animated preview block */
+.preview {
+  position: relative;
+  width: 160px;
+  height: 100px;
+  border: 1px solid #1a2a3a;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #06060c;
+}
+
+.block {
+  position: absolute;
+  border-radius: 2px;
+  animation: fall 1.8s linear infinite;
+}
+
+.b1 { width: 18px; height: 18px; background: #ff3355; left: 20px; animation-delay: 0s; }
+.b2 { width: 24px; height: 24px; background: #cc44ff; left: 70px; animation-delay: 0.6s; }
+.b3 { width: 14px; height: 14px; background: #ff9900; left: 120px; animation-delay: 1.2s; }
+
+.player {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #00ffcc;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes fall {
+  from { top: -30px; }
+  to   { top: 110px; }
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label {
+  font-size: 11px;
+  color: #334455;
+  letter-spacing: 2px;
+}
+
+.value {
+  font-size: 13px;
+  color: #00ffcc;
+}
+
+.start-button {
+  background: #00ffcc;
+  color: #0a0a0f;
+  border: none;
+  padding: 12px 40px;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.start-button:hover {
+  opacity: 0.85;
+}

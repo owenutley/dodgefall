@@ -4,6 +4,8 @@ import { Preloader } from './scenes/Preloader';
 import { MainMenu } from './scenes/MainMenu';
 import { Game } from './scenes/Game';
 import { GameOver } from './scenes/GameOver';
+import { Settings } from './scenes/Settings';
+import { Instructions } from './scenes/Instructions';
 
 export default new Phaser.Game({
   type: Phaser.AUTO,
@@ -14,7 +16,7 @@ export default new Phaser.Game({
     default: 'arcade',
     arcade: { gravity: { x: 0, y: 0 }, debug: false },
   },
-  scene: [Boot, Preloader, MainMenu, Game, GameOver],
+  scene: [Boot, Preloader, MainMenu, Game, GameOver, Settings, Instructions],
   parent: 'game-container',
   scale: {
     mode: Phaser.Scale.FIT,

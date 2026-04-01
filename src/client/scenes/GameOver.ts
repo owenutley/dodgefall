@@ -31,18 +31,8 @@ export class GameOver extends Phaser.Scene {
     // Fetch and display leaderboard
     try {
       const response = await fetch('/api/leaderboard');
-      const leaderboard = await response.json();
-      
-      leaderboard.forEach((entry: any, index: number) => {
-        const y = 180 + (index * 25);
-        const color = index === 0 ? '#ffff00' : '#00ffcc';
-        
-        this.add.text(width / 2, y, `${index + 1}. ${entry.score.toString().padStart(6, '0')} (Lvl ${entry.level})`, {
-          fontSize: '14px',
-          color: color,
-          fontFamily: '"Courier New", monospace'
-        }).setOrigin(0.5);
-      });
+      const data = await response.json();
+      const leaderboard = data.entries ?? [];
 
       if (leaderboard.length === 0) {
         this.add.text(width / 2, 200, 'NO SCORES YET', {
@@ -50,7 +40,20 @@ export class GameOver extends Phaser.Scene {
           color: '#888888',
           fontFamily: '"Courier New", monospace'
         }).setOrigin(0.5);
-      }
+      } else {
+      leaderboard.forEach((entry: any, index: number) => {
+        const y = 180 + (index * 25);
+        const isPlayer = entry.score === data.userBest;
+        const color = index === 0 ? '#ffff00' : isPlayer ? '#ff3355' : '#00ffcc';
+
+        this.add.text(width / 2, y,
+          `${index + 1}. ${entry.username.padEnd(12)} ${entry.score.toLocaleString()} Lvl ${entry.level}`, {
+          fontSize: '14px',
+          color: color,
+          fontFamily: '"Courier New", monospace'
+        }).setOrigin(0.5);
+      });
+    }
     } catch (e) {
       this.add.text(width / 2, 200, 'FAILED TO LOAD LEADERBOARD', {
         fontSize: '14px',

@@ -25,19 +25,9 @@ export class Settings extends Phaser.Scene {
     ];
 
     const currentColor = this.registry.get('playerColor');
-    const godMode = this.registry.get('godMode') ?? false;
-
-    this.add.text(width / 2, 120, 'GOD MODE: ' + (godMode ? 'ON' : 'OFF'), {
-      fontSize: '16px',
-      color: godMode ? '#00ffcc' : '#888888',
-      fontFamily: '"Courier New", monospace'
-    }).setOrigin(0.5).setInteractive({ useHandCursor: true }).on('pointerdown', () => {
-      this.registry.set('godMode', !godMode);
-      this.scene.restart();
-    });
 
     colors.forEach((color, i) => {
-      const y = 180 + (i * 55);
+      const y = 150 + (i * 55);
       
       const btn = this.add.rectangle(width / 2, y, 200, 40, 0x1a1a2e)
         .setInteractive({ useHandCursor: true });

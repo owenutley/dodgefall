@@ -264,7 +264,7 @@ export class Game extends Phaser.Scene {
     this.scoreText.setText(`SCORE  ${this.score}`);
     
     this.bonusCollectedCount++;
-    if (this.bonusCollectedCount >= 15) {
+    if (this.bonusCollectedCount >= 10) {
       this.bonusCollectedCount = 0;
       this.lives++;
       this.livesText.setText(`ExL ${this.lives - 1}`);
@@ -691,7 +691,8 @@ export class Game extends Phaser.Scene {
       console.error('Failed to submit score:', e);
     }
 
-    window.parent.postMessage({ type: 'GAME_OVER', score, level }, '*');
-    this.scene.start('GameOver', { score, level });
+    this.time.delayedCall(800, () => {
+      this.scene.start('GameOver', { score, level });
+    });
   }
 }

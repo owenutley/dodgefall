@@ -16,20 +16,17 @@ export class Instructions extends Phaser.Scene {
     }).setOrigin(0.5);
 
     const rules = [
-      '1. AVOID colored blocks.',
-      '   They take away your life!',
+      '1. AVOID:',
+      '   Colorful blocks falling from above!',
       '',
-      '2. COLLECT blocks that look',
-      '   like you (with black dot).',
-      '   They give you bonus points.',
+      '2. COLLECT:',
+      '   Blocks like you give you points!',
       '',
-      '3. EXTRA LIVES (ExL):',
-      '   Collect 20 bonus blocks',
-      '   to earn an extra life.',
+      '3. EXTRA LIVES:',
+      '   10 blocks like you for extra life!',
       '',
       '4. CONTROLS:',
-      '   Use LEFT/RIGHT buttons',
-      '   or Arrow Keys to move.'
+      '   Move Left/Right using arrow keys!',
     ];
 
     this.add.text(width / 2, height / 2, rules.join('\n'), {

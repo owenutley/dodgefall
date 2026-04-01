@@ -63,7 +63,7 @@ export class Settings extends Phaser.Scene {
       // Push into our strictly typed array
       this.colorTextObjects.push({ value: color.value, textObj: text });
 
-      const btnContainer = this.add.container(width / 2, y, [bg, dot, text]);
+      this.add.container(width / 2, y, [bg, dot, text]);
       
       bg.setInteractive({ useHandCursor: true });
 

@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 
 const W = 400;
 const H = 600;
-const PLAYER_SPEED = 475;
 const LEVEL_DURATION = 10; // seconds per level
 const SPEED_SCALE_PER_SECOND = 200 / LEVEL_DURATION; // Ensure we reach endSpeed by the end of the level
 
@@ -69,6 +68,7 @@ export class Game extends Phaser.Scene {
   private lives = 1;
   private bonusCollectedCount = 0;
   private currentSpeed = 0;
+  private playerSpeed = 500;
   private pauseKey!: Phaser.Input.Keyboard.Key;
   private isLevelTransitioning = false;
   private isWaitingForClear = false;
@@ -262,6 +262,8 @@ export class Game extends Phaser.Scene {
     const points = Math.floor(500 * multiplier);
     this.score += points;
     this.scoreText.setText(`SCORE  ${this.score}`);
+
+    this.playerSpeed += 10;
     
     this.bonusCollectedCount++;
     if (this.bonusCollectedCount >= 10) {
@@ -386,9 +388,9 @@ export class Game extends Phaser.Scene {
     const pb = this.player.body as Phaser.Physics.Arcade.Body;
     pb.setVelocityX(0);
     if (this.cursors.left.isDown || this.leftDown) {
-      pb.setVelocityX(-PLAYER_SPEED);
+      pb.setVelocityX(-this.playerSpeed);
     } else if (this.cursors.right.isDown || this.rightDown) {
-      pb.setVelocityX(PLAYER_SPEED);
+      pb.setVelocityX(this.playerSpeed);
     }
 
     if (this.isLevelTransitioning) return;

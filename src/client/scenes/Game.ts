@@ -95,6 +95,7 @@ export class Game extends Phaser.Scene {
     this.isWaitingForClear = false;
     this.nearMissStack = 0;
     this.lastNearMissTime = 0;
+    this.playerSpeed = 500;
 
     // Background
     this.background = this.add.rectangle(W / 2, H / 2, W, H, 0x0a0a0f);

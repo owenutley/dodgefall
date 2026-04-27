@@ -5,9 +5,7 @@ export class Boot extends Phaser.Scene {
     super('Boot');
   }
 
-  preload() {
-    // Load any assets needed for the preloader (e.g., a loading bar)
-  }
+  preload() {}
 
   create() {
     this.registry.set('playerColor', 0x00ffcc);

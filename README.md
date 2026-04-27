@@ -1,30 +1,49 @@
-## Devvit Phaser Starter
+# dodge-mate
 
-A starter to build web applications on Reddit's developer platform
+A fast-paced obstacle avoidance game built for Reddit with [Devvit](https://developers.reddit.com).
 
-- [Devvit](https://developers.reddit.com/): A way to build and deploy immersive games on Reddit
-- [Vite](https://vite.dev/): For compiling the webView
-- [Phaser](https://phaser.io/): 2D game engine
-- [Hono](https://hono.dev/): For backend logic
-- [TypeScript](https://www.typescriptlang.org/): For type safety
+---
 
-## Getting Started
+## How to Play
 
-> Make sure you have Node 22 downloaded on your machine before running!
+- **Move** your character left and right to dodge incoming obstacles
+- **Survive** as long as possible — the longer you last, the higher your score
+- **Beat yourself** — your personal best is saved per post, so every thread is a fresh leaderboard
 
-1. Run `npm create devvit@latest --template=phaser`
-2. Go through the installation wizard. You will need to create a Reddit account and connect it to Reddit developers
-3. Copy the command on the success page into your terminal
+On mobile? Tap the left/right sides of the screen. No thumbs required. Well — two thumbs required.
 
-## Commands
+---
 
-- `npm run dev`: Starts a development server where you can develop your application live on Reddit.
-- `npm run build`: Builds your client and server projects
-- `npm run deploy`: Uploads a new version of your app
-- `npm run launch`: Publishes your app for review
-- `npm run login`: Logs your CLI into Reddit
-- `npm run type-check`: Type checks, lints, and prettifies your app
+## Features
 
-## Credits
+- **Obstacle avoidance gameplay** — simple to pick up, hard to master
+- **Leaderboard** — scores are saved, beat your competition
+- **Mobile touch controls** — fully playable on the Reddit app
 
-Thanks to the Phaser team for [providing a great template](https://github.com/phaserjs/template-vite-ts)!
+---
+
+## Tech Stack
+
+- [Devvit](https://developers.reddit.com) — Reddit's developer platform
+- [Phaser 3](https://phaser.io) — game framework
+- TypeScript
+- Redis — leaderboard persistence
+
+---
+
+## Running Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Log in to Devvit
+devvit login
+
+# Playtest on your test subreddit (must have <200 members)
+devvit playtest r/yourTestSubreddit
+```
+
+Hot reload is enabled — save your code and changes reflect instantly.
+
+---

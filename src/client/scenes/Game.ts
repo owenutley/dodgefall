@@ -656,7 +656,7 @@ export class Game extends Phaser.Scene {
   }
 
   private spawnBonus() {
-    const size = 24; // Slightly smaller than player (32)
+    const size = 24;
     const x = Phaser.Math.Between(size / 2 + 4, W - size / 2 - 4);
     const color = this.registry.get('playerColor') ?? 0x00ffcc;
     
